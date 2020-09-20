@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "toolkit-for-git",
   "name": "Toolkit for Git",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "publisher": "v-network-solutions",
   "tags": [
     "clone",
@@ -59,7 +59,7 @@
   "contributions": [
     {
       "id": "remotely-pull-git",
-      "description": "I'm my first task contribution.  normally id's will look-like-this-named",
+      "description": "I'm my first task contribution.  Normally id's will look-like-this-named",
       "type": "ms.vss-distributed-task.task",
       "targets": [
         "ms.vss-distributed-task.tasks"
