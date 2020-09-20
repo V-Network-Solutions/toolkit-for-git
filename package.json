@@ -1,15 +1,24 @@
 {
   "name": "toolkit-for-git",
-  "version": "1.0.0",
+  "version": "0.1.2",
+  "license": "MIT",
+  "private": true,
   "description": "Toolkit for Git is an Azure DevOps extension with a series of Git tasks, which can be used to carry out local or remote git commands in your build pipeline.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "author": {
+    "name": "V-Network Solutions",
+    "email": "help@vnetkc.com",
+    "url": "https://github.com/V-Network-Solutions/"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Toolkit-for-Git/toolkit-for-git.git"
-  },
+  "contributors": [
+    {
+      "name": "Ryan Valizan",
+      "url": "https://github.com/devnetkc"
+    },
+    {
+      "name": "Evan Deuvall",
+      "url": "https://www.behance.net/DeuvallVersatile"
+    }
+  ],
   "keywords": [
     "azure",
     "azuredevops",
@@ -22,12 +31,20 @@
     "typescript",
     "typescript4"
   ],
-  "author": "V-Network Solutions",
-  "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/Toolkit-for-Git/toolkit-for-git/issues"
+  "main": "index.js",
+  "scripts": {
+    "build": "tfx extension create --manifest-globs vss-extension.json",
+    "lint":"tslint -c tslint.js 'src/**/*.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage": "https://github.com/Toolkit-for-Git/toolkit-for-git#readme",
+  "homepage": "https://github.com/V-Network-Solutions/toolkit-for-git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/V-Network-Solutions/toolkit-for-git.git"
+  },
+  "bugs": {
+    "url": "https://github.com/V-Network-Solutions/toolkit-for-git/issues/new/choose"
+  },
   "dependencies": {
     "azure-pipelines-task-lib": "^2.10.1"
   },
