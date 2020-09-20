@@ -1,0 +1,72 @@
+{
+  "manifestVersion": 1,
+  "id": "toolkit-for-git",
+  "name": "Toolkit for Git",
+  "version": "0.1.2",
+  "publisher": "v-network-solutions",
+  "tags": [
+    "clone",
+    "commit",
+    "fetch",
+    "git",
+    "remote",
+    "release",
+    "repo",
+    "repository",
+    "pull",
+    "push"
+  ],
+  "description": "Toolkit for Git is an Azure DevOps extension with a series of Git tasks, which can be used to carry out local or remote git commands in your build pipeline.",
+  "categories": [
+    "Azure Pipelines"
+  ],
+  "icons": {
+    "default": "images/extension-icon.png"
+  },
+  "branding": {
+    "color": "#07314e",
+    "theme": "dark"
+  },
+  "links": {
+    "getstarted": {
+      "uri": "https://github.com/V-Network-Solutions/toolkit-for-git/wiki"
+    },
+    "support": {
+      "uri": "https://github.com/V-Network-Solutions/toolkit-for-git/issues/new/choose"
+    },
+    "license": {
+      "uri": "https://github.com/V-Network-Solutions/toolkit-for-git/blob/master/LICENSE"
+    }
+  },
+  "content": {
+    "details": {
+      "path": "README.md"
+    },
+    "license": {
+      "path": "LICENSE"
+    }
+  },
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "files": [
+    {
+      "path": "remotely-pull-git"
+    }
+  ],
+  "contributions": [
+    {
+      "id": "remotely-pull-git",
+      "description": "I'm my first task contribution.  normally id's will look-like-this-named",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "remotely-pull-git"
+      }
+    }
+  ]
+}
