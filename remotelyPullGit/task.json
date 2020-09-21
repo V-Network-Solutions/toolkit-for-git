@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
   "id": "7be6b1b1-e620-4d39-983b-acb22789a62a",
-  "name": "remotely-pull-git",
+  "name": "remotelyPullGit",
   "friendlyName": "Remotely Changes Pull with Git",
   "description": "Task used to connect to remote server and pull repository changes using Git.",
   "helpMarkDown": "",
