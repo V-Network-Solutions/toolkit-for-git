@@ -1,3 +1,16 @@
+# Build files
+*.js
+*.js.map
+.test-results
+.coverage
+.release
+
+# Packages
+*.vsix
+
+# MacOS Cache Files
+DS_Store
+
 # Logs
 logs
 *.log
