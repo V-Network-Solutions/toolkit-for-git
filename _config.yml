@@ -7,10 +7,15 @@ url: https://www.tk4git.com
 logo: https://api1.vnetkc.com/twitter.png
 twitter:
   username: toolkit_for_git
-  card: summary
+  card: summary_large_image
 social:
   name: Toolkit for Git
   links:
     - https://www.tk4git.com
     - https://twitter.com/toolkit_for_git
     - https://github.com/toolkit-for-git
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: https://api1.vnetkc.com/twitter.png
