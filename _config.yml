@@ -5,10 +5,9 @@ author: vnetkc
 title: Toolkit for Git
 url: https://www.tk4git.com
 logo: https://api1.vnetkc.com/twitter.png
-image: https://api1.vnetkc.com/twitter.png
 twitter:
   username: toolkit_for_git
-  card: summary_large_image
+  card: summary
 social:
   name: Toolkit for Git
   links:
