@@ -1,4 +1,4 @@
-import { ToolkitForGitTasks } from "./src/toolkit-for-git/tasks/tasks";
+import { ToolkitForGitTasks } from "./tasks/tasks";
 
 const ToolkitForGitTask = new ToolkitForGitTasks();
 
