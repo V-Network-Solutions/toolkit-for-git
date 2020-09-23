@@ -30,10 +30,7 @@ export class RemotelyPullGit {
 
     // tslint:disable-next-line: no-empty
     public async run() {
+        return true;
     }
 
 }
-
-
-const remotelyPullGit = new RemotelyPullGit();
-remotelyPullGit.run();
