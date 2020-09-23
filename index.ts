@@ -1,4 +1,5 @@
-import { RemotelyPullGit } from "./src/tasks/remotely-pull-git/remotelyPullGit";
+import { ToolkitForGitTasks } from "./src/toolkit-for-git/tasks/tasks";
 
-const remotelyPullGit = new RemotelyPullGit();
-remotelyPullGit.run();
+const ToolkitForGitTask = new ToolkitForGitTasks();
+
+ToolkitForGitTask.remotely_pull_git();
