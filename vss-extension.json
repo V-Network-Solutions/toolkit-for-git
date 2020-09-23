@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "toolkit-for-git",
   "name": "Toolkit for Git",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "publisher": "v-network-solutions",
   "tags": [
     "clone",
@@ -53,7 +53,7 @@
   ],
   "files": [
     {
-      "path": "remotelyPullGit"
+      "path": ".release"
     }
   ],
   "contributions": [
@@ -65,7 +65,7 @@
         "ms.vss-distributed-task.tasks"
       ],
       "properties": {
-        "name": "remotelyPullGit"
+        "name": ".release/toolkit-for-git/remotely-pull-git"
       }
     }
   ]
