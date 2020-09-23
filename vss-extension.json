@@ -65,7 +65,7 @@
         "ms.vss-distributed-task.tasks"
       ],
       "properties": {
-        "name": ".release/toolkit-for-git/tasks/remotely-pull-git"
+        "name": ".release/toolkit-for-git/remotely-pull-git"
       }
     }
   ]
