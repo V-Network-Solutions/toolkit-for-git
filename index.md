@@ -1,4 +1,4 @@
-<img alt="Toolkit for Git logo" src="https://github.com/V-Network-Solutions/toolkit-for-git/blob/master/images/extension-icon.png?raw=true" width="512" height="512" />
+![Toolkit for Git logo](https://github.com/V-Network-Solutions/toolkit-for-git/blob/master/static/images/extension-icon.png?raw=true")
 
 # About Toolkit for Git
 
