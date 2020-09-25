@@ -33,7 +33,10 @@
   ],
   "scripts": {
     "build": "npm test && npm run lint",
-    "clean": "rimraf ./{*.js,*.map} .coverage .test-results .release *.vsix .taskkey",
+    "clean": "rimraf ./src/**/{*.js,*.map} .coverage .test-results .release *.vsix .taskkey",
+    "cov-open": "npm run build && nyc --check-coverage false npm run mocha && npm run cov-reopen",
+    "cov-reopen": "open .coverage/index.html",
+    "dev-reset": "npm run clean && node -e \"require('rimraf').sync('node_modules');\" && npm run dev-setup",
     "dev-setup": "npm i && npm run build",
     "ext-upload": "tfx extension publish --manifest-globs vss-extension.json",
     "lint": "tslint -c tslint.json '*.ts'",
