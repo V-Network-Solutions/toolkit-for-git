@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "toolkit-for-git",
   "name": "Toolkit for Git",
-  "version": "0.1.6",
+  "version": "0.1.10",
   "publisher": "v-network-solutions",
   "tags": [
     "clone",
@@ -21,7 +21,9 @@
     "Azure Pipelines"
   ],
   "icons": {
-    "default": "images/extension-icon.png"
+    "light": "static/images/full-color-light-logo.png",
+    "dark": "static/images/full-color-dark-logo.png",
+    "default": "static/images/extension-icon.png"
   },
   "branding": {
     "color": "#07314e",
@@ -53,7 +55,12 @@
   ],
   "files": [
     {
-      "path": ".release"
+        "path": "static",
+        "addressable": true
+    },
+    {
+      "path": ".release",
+      "addressable": true
     }
   ],
   "contributions": [
