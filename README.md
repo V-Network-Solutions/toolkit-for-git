@@ -1,10 +1,10 @@
 <!-- markdownlint-disable -->
-<img alt="Toolkit for Git logo" src="https://github.com/V-Network-Solutions/toolkit-for-git/blob/master/images/extension-icon.png?raw=true" width="512" height="512" />
+[Toolkit for Git logo](https://github.com/V-Network-Solutions/toolkit-for-git/blob/master/static/images/extension-icon.png?raw=true)
 <!-- markdownlint-restore -->
 
 # About Toolkit for Git
 
-Version: 0.1.5
+Version: 0.1.11
 
 Toolkit for Git is an Azure DevOps extension with a series of Git tasks, which can be used to carry out local or remote git commands in your build pipeline.
 
