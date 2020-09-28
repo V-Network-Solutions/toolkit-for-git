@@ -1,6 +1,6 @@
 import chai from "chai";
 import chaiAsPromised from "chai-as-promised";
-import { RemotelyPullGit } from "./remotelyPullGit";
+import { RemotelyPullGit } from "../../../main/tasks/remotely-pull-git/RemotelyPullGit";
 
 chai.use(chaiAsPromised);
 const expect = chai.expect;
