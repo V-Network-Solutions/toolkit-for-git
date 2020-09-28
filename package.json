@@ -95,8 +95,8 @@
         "extends": "@swellaby/nyc-config",
         "exclude": [
             "src/tests/**/*.spec*",
-            "src/main/toolkit-for-git/index.ts",
-            "src/main/toolkit-for-git/common/constants.ts"
+            "src/main/index.ts",
+            "src/main/common/constants.ts"
         ],
         "include": [
             "src/main/**/*"
