@@ -1,79 +1,74 @@
 {
-  "manifestVersion": 1,
-  "id": "toolkit-for-git",
-  "name": "Toolkit for Git",
-  "version": "0.1.11",
-  "publisher": "v-network-solutions",
-  "tags": [
-    "clone",
-    "commit",
-    "fetch",
-    "git",
-    "remote",
-    "release",
-    "repo",
-    "repository",
-    "pull",
-    "push"
-  ],
-  "description": "Toolkit for Git is an Azure DevOps extension with a series of Git tasks, which can be used to carry out local or remote git commands in your build pipeline.",
-  "categories": [
-    "Azure Pipelines"
-  ],
-  "icons": {
-    "light": "static/images/full-color-light-logo.png",
-    "dark": "static/images/full-color-dark-logo.png",
-    "default": "static/images/extension-icon.png"
-  },
-  "branding": {
-    "color": "#07314e",
-    "theme": "dark"
-  },
-  "links": {
-    "getstarted": {
-      "uri": "https://github.com/V-Network-Solutions/toolkit-for-git/wiki"
+    "manifestVersion": 1,
+    "id": "toolkit-for-git",
+    "name": "Toolkit for Git",
+    "version": "0.1.13",
+    "publisher": "v-network-solutions",
+    "tags": [
+        "clone",
+        "commit",
+        "fetch",
+        "git",
+        "remote",
+        "release",
+        "repo",
+        "repository",
+        "pull",
+        "push"
+    ],
+    "description": "Toolkit for Git is an Azure DevOps extension with a series of Git tasks, which can be used to carry out local or remote git commands in your build pipeline.",
+    "categories": [
+        "Azure Pipelines"
+    ],
+    "icons": {
+        "light": "static/images/full-color-light-logo.png",
+        "dark": "static/images/full-color-dark-logo.png",
+        "default": "static/images/extension-icon.png"
     },
-    "support": {
-      "uri": "https://github.com/V-Network-Solutions/toolkit-for-git/issues/new/choose"
+    "branding": {
+        "color": "#07314e",
+        "theme": "dark"
     },
-    "license": {
-      "uri": "https://github.com/V-Network-Solutions/toolkit-for-git/blob/master/LICENSE"
-    }
-  },
-  "content": {
-    "details": {
-      "path": "README.md"
+    "links": {
+        "getstarted": {
+            "uri": "https://github.com/V-Network-Solutions/toolkit-for-git/wiki"
+        },
+        "support": {
+            "uri": "https://github.com/V-Network-Solutions/toolkit-for-git/issues/new/choose"
+        },
+        "license": {
+            "uri": "https://github.com/V-Network-Solutions/toolkit-for-git/blob/master/LICENSE"
+        }
     },
-    "license": {
-      "path": "LICENSE"
-    }
-  },
-  "targets": [
-    {
-      "id": "Microsoft.VisualStudio.Services"
-    }
-  ],
-  "files": [
-    {
-        "path": "static",
-        "addressable": true
+    "content": {
+        "details": {
+            "path": "docs/tk4git-marketing.md"
+        },
+        "license": {
+            "path": "LICENSE"
+        }
     },
-    {
-      "path": ".release",
-      "addressable": true
-    }
-  ],
-  "contributions": [
-    {
-      "id": "remotely-pull-git",
-      "description": "I'm my first task contribution.  Normally id's will look-like-this-named",
-      "type": "ms.vss-distributed-task.task",
-      "targets": [
-        "ms.vss-distributed-task.tasks"
-      ],
-      "properties": {
-        "name": ".release/toolkit-for-git/remotely-pull-git"
-      }
-    }
-  ]
+    "targets": [{
+        "id": "Microsoft.VisualStudio.Services"
+    }],
+    "files": [{
+            "path": "static",
+            "addressable": true
+        },
+        {
+            "path": ".release",
+            "addressable": true
+        }
+    ],
+    "contributions": [{
+        "id": "remotely-pull-git",
+        "description": "I'm my first task contribution.  Normally id's will look-like-this-named",
+        "type": "ms.vss-distributed-task.task",
+        "targets": [
+            "ms.vss-distributed-task.tasks"
+        ],
+        "properties": {
+            "name": ".release/tasks/remotely-pull-git"
+        }
+    }]
 }
