@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "toolkit-for-git",
     "name": "Toolkit for Git",
-    "version": "0.1.13",
+    "version": "0.1.15",
     "publisher": "v-network-solutions",
     "tags": [
         "clone",
