@@ -1,6 +1,6 @@
 /**
  * * TaskInputOptions Unit-Tests
- * Testing model of input options collected during task configuration.
+ * Testing input options collected during task configuration model class.
  */
 
 import chai from "chai";
