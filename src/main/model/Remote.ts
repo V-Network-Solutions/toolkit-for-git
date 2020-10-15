@@ -4,47 +4,47 @@
  */
 
 export class Remote {
-    private _name: string;
-    private _url: string;
+    private _name: string
+    private _url: string
 
     public constructor(url: string, name?: string) {
-        this._url = url;
+        this._url = url
         if (name === undefined) {
-            this._name = "devops";
-            return;
+            this._name = "devops"
+            return
         }
-        this._name = name;
+        this._name = name
      }
 
      /**
-      * Getter name
-      * @return {string}
+      * Get remote name
+      * @return {string} - The remote name
       */
      public get name(): string {
-         return this._name;
+         return this._name
      }
 
      /**
-      * Getter url
-      * @return {string}
+      * Get remote url
+      * @return {string} - The remote url
       */
      public get url(): string {
-         return this._url;
+         return this._url
      }
 
      /**
-      * Setter name
-      * @param {string} value
+      * Set remote name
+      * @param {string} value - The remote name
       */
      public set name(value: string) {
-         this._name = value;
+         this._name = value
      }
 
      /**
-      * Setter url
-      * @param {string} value
+      * Set remote url
+      * @param {string} value - Remote url address to set as
       */
      public set url(value: string) {
-         this._url = value;
+         this._url = value
      }
  }

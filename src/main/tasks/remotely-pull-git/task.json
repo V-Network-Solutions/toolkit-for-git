@@ -1,29 +1,206 @@
 {
-    "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
     "id": "7be6b2b1-e220-4d29-982b-acb22782b62a",
     "name": "remotely-pull-git",
-    "friendlyName": "Remotely Changes Pull with Git",
-    "description": "Task used to connect to remote server and pull repository changes using Git.",
-    "helpMarkDown": "",
+    "friendlyName": "Git Pull ",
+    "description": "Task used to connect to a remote server and pull repository changes using Git.",
+    "helpMarkDown": "More help is available on the project [Wiki page](https://github.com/V-Network-Solutions/toolkit-for-git/wiki).",
     "category": "Utility",
     "author": "V-Network Solutions",
     "version": {
         "Major": 0,
-        "Minor": 2,
-        "Patch": 0
+        "Minor": 5,
+        "Patch": 1
     },
-    "instanceNameFormat": "Echo $(samplestring)",
+    "instanceNameFormat": "Execute git pull on remote branch to $(branchName)",
+    "groups": [{
+            "name": "urlStyleSelection",
+            "displayName": "Source URL",
+            "isExpanded": true
+        },
+        {
+            "name": "authentication",
+            "displayName": "Authentication Method",
+            "visibleRule": "urlStyle = custom",
+            "isExpanded": true
+        },
+        {
+            "name": "repoInformation",
+            "displayName": "Repository Details",
+            "visibleRule": "urlStyle = custom",
+            "isExpanded": true
+        },
+        {
+            "name": "runOptions",
+            "displayName": "Optional",
+            "isExpanded": false
+        }
+    ],
     "inputs": [{
-        "name": "samplestring",
-        "type": "string",
-        "label": "Sample String",
-        "defaultValue": "",
-        "required": true,
-        "helpMarkDown": "A sample string"
-    }],
+            "name": "sshEndpoint",
+            "type": "connectedService:ssh",
+            "label": "SSH service connection",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "SSH service connection with connection details for the remote machine."
+        },
+        {
+            "name": "urlStyle",
+            "type": "radio",
+            "label": "How to Build URL",
+            "required": true,
+            "defaultValue": "authurl",
+            "options": {
+                "authurl": "Full URL with Auth",
+                "custom": "Custom"
+            },
+            "groupName": "urlStyleSelection",
+            "helpMarkDown": "Select which URL style to use. More help available on the project [Wiki page](https://github.com/V-Network-Solutions/toolkit-for-git/wiki)"
+        },
+        {
+            "name": "authurl",
+            "type": "string",
+            "label": "Full Authorized URL",
+            "defaultValue": "dev.azure.com/$(Build.OrganizationName)/$(Build.ProjectName)/_git/$(Build.SourceBranchName)",
+            "required": true,
+            "visibleRule": "urlStyle = authurl",
+            "groupName": "urlStyleSelection",
+            "helpMarkDown": "Specify the shell commands to run on the remote machine. Enter each command along with its arguments on a new line. To run multiple commands together, enter them on the same line separated by semi-colons (e.g. cd /home/user/myFolder;build)."
+        },
+        {
+            "name": "custom",
+            "type": "string",
+            "label": "Custom URL & Repo Name",
+            "defaultValue": "dev.azure.com/$(Build.OrganizationName)/$(Build.ProjectName)/_git/$(Build.SourceBranchName)",
+            "required": true,
+            "visibleRule": "urlStyle = custom",
+            "groupName": "urlStyleSelection",
+            "helpMarkDown": "Specify the shell commands to run on the remote machine. Enter each command along with its arguments on a new line. To run multiple commands together, enter them on the same line separated by semi-colons (e.g. cd /home/user/myFolder;build)."
+        },
+        {
+            "name": "authUserName",
+            "type": "string",
+            "label": "Username",
+            "required": true,
+            "groupName": "authentication",
+            "visibleRule": "urlStyle = custom",
+            "helpMarkDown": "Enter **Authorization Username** to use for remote origin connection.\n\nMore help available on the project [Wiki page](https://github.com/V-Network-Solutions/toolkit-for-git/wiki)",
+            "defaultValue": "username"
+        },
+        {
+            "name": "authUserToken",
+            "type": "string",
+            "label": "Username Token",
+            "required": true,
+            "groupName": "authentication",
+            "visibleRule": "urlStyle = custom",
+            "helpMarkDown": "Enter **Authorization Token** to use for remote origin connection.\n\nMore help available on the project [Wiki page](https://github.com/V-Network-Solutions/toolkit-for-git/wiki)",
+            "defaultValue": "t0k3n"
+        },
+        {
+            "name": "projectDirectory",
+            "type": "string",
+            "label": "Remote Project Directory",
+            "required": true,
+            "groupName": "repoInformation",
+            "visibleRule": "urlStyle = custom",
+            "helpMarkDown": "Enter a path to your git project on the remote server.\n\nMore help available on the project [Wiki page](https://github.com/V-Network-Solutions/toolkit-for-git/wiki)",
+            "defaultValue": "$(Build.Repository.Name)"
+        },
+        {
+            "name": "customBranches",
+            "type": "boolean",
+            "label": "Use Custom Branch Names",
+            "required": false,
+            "defaultValue": "false",
+            "visibleRule": "urlStyle = custom",
+            "groupName": "repoInformation",
+            "helpMarkDown": "(optional) Check if you wish to use custom branch names.  \n\nMore help available on the project [Wiki page](https://github.com/V-Network-Solutions/toolkit-for-git/wiki)"
+        },
+        {
+            "name": "remoteReleaseBranchName",
+            "type": "string",
+            "label": "Remote Release Branch Name",
+            "defaultValue": "live",
+            "required": true,
+            "visibleRule": "customBranches = true",
+            "groupName": "repoInformation",
+            "helpMarkDown": "Branch to leave remote server on when complete.\n\nMore help available on the project [Wiki page](https://github.com/V-Network-Solutions/toolkit-for-git/wiki)"
+        },
+        {
+            "name": "sourceReleaseBranchName",
+            "type": "string",
+            "label": "Source Release Branch Name",
+            "defaultValue": "$(Build.SourceBranchName)",
+            "required": true,
+            "visibleRule": "customBranches = true",
+            "groupName": "repoInformation",
+            "helpMarkDown": "Branch to leave remote server on when complete.\n\nMore help available on the project [Wiki page](https://github.com/V-Network-Solutions/toolkit-for-git/wiki)"
+        },
+        {
+            "name": "sourceDevBranchName",
+            "type": "string",
+            "label": "Source Dev Branch Name",
+            "defaultValue": "dev",
+            "required": true,
+            "visibleRule": "customBranches = true",
+            "groupName": "repoInformation",
+            "helpMarkDown": "Develope branch to work with from source repository.\n\nMore help available on the project [Wiki page](https://github.com/V-Network-Solutions/toolkit-for-git/wiki)"
+        },
+        {
+            "name": "fetchChanges",
+            "type": "boolean",
+            "label": "Fetch Changes",
+            "required": false,
+            "groupName": "runOptions",
+            "helpMarkDown": "Just check for changes on remote server, then commit and push to dev branch if found.\n\nMore help available on the project [Wiki page](https://github.com/V-Network-Solutions/toolkit-for-git/wiki)",
+            "defaultValue": "false"
+        },
+        {
+            "name": "softError",
+            "type": "boolean",
+            "label": "Soft Error",
+            "required": false,
+            "groupName": "runOptions",
+            "helpMarkDown": "Throws an error message in pipeline as an alert of changes detected, but still commits and pushes changes to dev branch.\n\nMore help available on the project [Wiki page](https://github.com/V-Network-Solutions/toolkit-for-git/wiki)",
+            "defaultValue": "false"
+        },
+        {
+            "name": "tracked",
+            "type": "boolean",
+            "label": "Stash Un-Tracked Files",
+            "required": false,
+            "groupName": "runOptions",
+            "helpMarkDown": "Stash all files before pulling changes from source repository, including un-tracked files.\n\nMore help available on the project [Wiki page](https://github.com/V-Network-Solutions/toolkit-for-git/wiki)",
+            "defaultValue": "true"
+        },
+        {
+            "name": "customMessage",
+            "type": "boolean",
+            "label": "Customize Message",
+            "required": false,
+            "groupName": "runOptions",
+            "helpMarkDown": "Create a custom commit message to use.\n\nMore help available on the project [Wiki page](https://github.com/V-Network-Solutions/toolkit-for-git/wiki)",
+            "defaultValue": "false"
+        },
+        {
+            "name": "customCommitMessage",
+            "type": "string",
+            "label": "Custom Commit Message",
+            "defaultValue": "🤖 Server Side Commit",
+            "required": true,
+            "visibleRule": "customMessage = true",
+            "groupName": "runOptions",
+            "helpMarkDown": "Add a custom commit message to use if changes are detected remotely.\n\nMore help available on the project [Wiki page](https://github.com/V-Network-Solutions/toolkit-for-git/wiki)"
+        }
+    ],
     "execution": {
         "Node10": {
-            "target": "../index.js"
+            "target": "RemotelyPullGit.js",
+            "argumentFormat": ""
         }
+    },
+    "messages": {
+        "RemoteCmdExecutionErr": "Command failed with errors on remote machine.",
+        "RemoteCmdNonZeroExitCode": "Command %s exited with code %s."
     }
 }

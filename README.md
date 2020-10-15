@@ -4,7 +4,7 @@
 
 # About Toolkit for Git
 
-Version: 0.1.15
+Version: 0.1.16
 
 Toolkit for Git is an Azure DevOps extension with a series of Git tasks, which can be used to carry out local or remote git commands in your build pipeline.
 

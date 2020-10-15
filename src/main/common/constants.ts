@@ -1,6 +1,5 @@
-/**
- * * Constants
- * Setting constant literals for access throughout toolkit.
+/** Object of constants
+ * Various literals used throughout the TK4Git
  */
 
 export default {
@@ -30,4 +29,4 @@ export default {
             path: "remotely-pull-git"
         }
     }
-};
+}

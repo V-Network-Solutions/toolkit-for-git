@@ -1,28 +1,32 @@
-/**
- * * Branch
- * Class for modeling branch commands for tasks.
+/** Class Branch represent git commands for branches
+ * Is a model for branch commands used for tasks.
  */
-
 export class Branch {
-  private _name: string;
+    /**
+     * Store the name of the branch.
+     *
+     * @param {string}_name - This is the name of the branch object.
+     *
+     */
+    private _name: string
 
-  public constructor($name: string) {
-    this._name = $name;
-  }
+    public constructor($name: string) {
+        this._name = $name
+    }
 
-  /**
-   * Getter name
-   * @return {string}
-   */
-  public get name(): string {
-    return this._name;
-  }
+    /**
+     * Get branch name
+     * @return {string} - Returns name of branch
+     */
+    public get name(): string {
+        return this._name
+    }
 
-  /**
-   * Setter name
-   * @param {string} value
-   */
-  public set name(value: string) {
-    this._name = value;
-  }
+    /**
+     * Set branch name
+     * @param {string} value - Sets the name of the branch
+     */
+    public set name(value: string) {
+        this._name = value
+    }
 }
