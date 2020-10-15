@@ -1,26 +1,6 @@
-/**
- * * TaskInputOptions
- *
- * @remarks
- * Model of input options collected during task configuration.
- *
- * @import
- * RemoteInterface.ts - This will build the interface for any remote connections
- */
+/** Class TaskInputOptions represent the field input options. */
 import { RemoteInterface } from "../model/interface/RemoteInterface"
 export class ToolkitInputOptions {
-    public get inputFieldOptions(): object {
-        return this._inputFieldOptions
-    }
-    public set inputFieldOptions(value: object) {
-        this._inputFieldOptions = value
-    }
-    public get remote(): RemoteInterface {
-        return this._remote
-    }
-    public set remote(value: RemoteInterface) {
-        this._remote = value
-    }
     /**
      * Stores Field Input Options.
      *
@@ -28,41 +8,47 @@ export class ToolkitInputOptions {
      * This property is private and contains most of the default values required from the input options.
      * This class contains getters and setters for accessing this property.
      *
-     * @param inputFieldOptions - This is the array of input options asked between all of the tasks.
+     * @param _inputFieldOptions - This is the array of input options asked between all of the tasks.
      *
      */
     private _inputFieldOptions: object
+
     /**
-     * Stores Remote Input Options.
-     *
-     * @remarks
-     * This stores information based on the RemoteInterface interface layout.
-     *
-     * @param _remote - This is special object interface of inputs used in remote connection.
-     *
-     */
-    private _remote: RemoteInterface
-    /**
-     * Constructs whatever is attempting to use input options.
+     * Create a set of input field options.
      *
      * @remarks
      * This was going to be a static class, but I think this should work out better.
      *
-     * @param r - This is special object interface of inputs used in remote connection.
-     *
+     * @param {RemoteInterface} _remote - The remote connection options.
      */
-    public constructor(r: RemoteInterface) {
-        this._remote = r
+    public constructor(_remote: RemoteInterface) {
         this._inputFieldOptions = {
-            remote: this._remote,
+            remote: _remote,
             branch: "live",
             stageBranch: "stage",
             devBranch: "dev",
-            projectDir: "wordpress",
             commit: true,
             softError: false,
             fetch: false,
             trackedOnly: false,
         }
     }
+    /**
+     * Get an input field value.
+     *
+     * @return {mixed} The input field option value.
+     */
+    public get inputFieldOptions(): object {
+        return this._inputFieldOptions
+    }
+
+    /**
+     * Sets or updates _inputFieldOptions object values or creates additional ones.
+     *
+     * @param {object} value - The object to add or modify.
+     */
+    public set inputFieldOptions(value: object) {
+        this._inputFieldOptions = value
+    }
+
 }
