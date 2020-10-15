@@ -1,5 +1,5 @@
 {
     "mode": "file",
-    "out": "docs/typedoc",
+    "out": "docs",
     "src": "src/main"
 }
