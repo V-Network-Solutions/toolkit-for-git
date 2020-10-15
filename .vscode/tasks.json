@@ -25,6 +25,16 @@
       "type": "shell"
     },
     {
+      "label": "docs",
+      "command": "typedoc",
+      "type": "shell"
+    },
+    {
+      "label": "upload",
+      "command": "npm run ext-upload",
+      "type": "shell"
+    },
+    {
       "label": "install",
       "command": "npm i",
       "type": "shell"
