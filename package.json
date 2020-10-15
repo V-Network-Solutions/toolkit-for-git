@@ -1,6 +1,6 @@
 {
     "name": "toolkit-for-git",
-    "version": "0.1.15",
+    "version": "0.1.24",
     "license": "MIT",
     "private": true,
     "description": "Toolkit for Git is an Azure DevOps extension with a series of Git tasks, which can be used to carry out local or remote git commands in your build pipeline.",
@@ -95,7 +95,6 @@
         "extends": "@swellaby/nyc-config",
         "exclude": [
             "src/tests/**/*.spec*",
-            "src/main/index.ts",
             "src/main/common/constants.ts"
         ],
         "include": [
